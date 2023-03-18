@@ -46,7 +46,7 @@ def button(msg,x,y,w,h,ic,ac,action=None):
     else:
         pygame.draw.rect(gameDisplay, ic,(x,y,w,h))
 
-    smallText = pygame.font.Font("/Users/ishaannene/Desktop/advanced_pixel-7.ttf",30)
+    smallText = pygame.font.Font("advanced_pixel-7.ttf",30)
     textSurf, textRect = text_objects(msg, smallText,black)
     textRect.center = ( (x+(w/2)), (y+(h/2)) )
     gameDisplay.blit(textSurf, textRect)
@@ -56,7 +56,7 @@ def game_intro():
 
     intro = True
     message = "Python"
-    font = pygame.font.Font('/Users/ishaannene/Desktop/advanced_pixel-7.ttf',45)
+    font = pygame.font.Font('advanced_pixel-7.ttf',45)
     snip = font.render('',True,'white')
     counter = 0
     speed = 1
@@ -97,8 +97,8 @@ def screen1():
         gameDisplay.fill(black)
         pygame.draw.rect(gameDisplay, grey1, pygame.Rect(20, 20, 760, 370))
         pygame.draw.rect(gameDisplay, lightgrey, pygame.Rect(40, 40, 720, 330))
-        pygame.draw.rect(gameDisplay, white, pygame.Rect(300, 200, 100, 100))
-        largeText = pygame.font.SysFont("padauk",115)
+        #pygame.draw.rect(gameDisplay, white, pygame.Rect(300, 200, 100, 100))
+        largeText = pygame.font.Font("advanced_pixel-7.ttf",115)
         TextSurf, TextRect = text_objects("Python", largeText,grey1)
         TextRect.center = ((display_width/2),210)
 
@@ -109,15 +109,9 @@ def screen1():
         button("NEXT!",670,400,100,50,white,grey,screen2)
         pygame.display.update()
         
-"""
-        largeText1 = pygame.font.SysFont("padauk",115)
-        TextSurf, TextRect = text_objects("Python", largeText1,grey)
-        TextRect.center = ((display_width/1.975),200)
-        
-        gameDisplay.blit(TextSurf, TextRect)
-"""
 
 def screen2():
+    time.sleep(1)
     gameExit = False
     while not gameExit:
         for event in pygame.event.get():
@@ -130,7 +124,7 @@ def screen2():
         pygame.draw.rect(gameDisplay, lightgrey, pygame.Rect(40, 40, 720, 330))
         
         intro1 = True
-        message = "<game name>  is an educational community for [computer programming]"
+        message = "<game name>  is an educational community for [computer programming]"
     
         message1 = "On the platform, software developers train on programming challenges."
         message2 = "This story revolves around an abandoned cabin that is situated"
@@ -145,13 +139,13 @@ def screen2():
         message11 = "all the problems else he would be stuck in there for a lifetime."
 
         
-        font = pygame.font.Font('/Users/ishaannene/Desktop/advanced_pixel-7.ttf',32)
+        font = pygame.font.Font('advanced_pixel-7.ttf',32)
         snip = font.render('',True,'white')
         counter = 0
         speed = 7
         done = False
-
-        while intro1:
+        button("NEXT!",570,400,100,50,white,grey,screen3)
+        while not done:
             for event in pygame.event.get():
                 #print(event)
                 if event.type == pygame.QUIT:
@@ -169,7 +163,7 @@ def screen2():
                 done = True
             snip = font.render('',True,'white')
             
-            button("NEXT!",670,400,100,50,white,grey,screen3)
+            #button("NEXT!",670,400,100,50,white,grey,screen3)
             pygame.display.update()
             
             font.render(message[0:counter//speed], True, 'black')
@@ -241,11 +235,12 @@ def screen3():
         pygame.display.update()
 def screen4():
     return
+
 game_intro()
 pygame.quit()
 quit()
 """
-<game name>  is an educational community for [computer programming]
+<game name>  is an educational community for [computer programming]
 On the platform, software developers train on programming challenges.
 This story revolves around an abandoned cabin that is situated
 in the heart of the forest. The cabin was said to be cursed,
